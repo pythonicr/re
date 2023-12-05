@@ -1,4 +1,8 @@
-# r-re
+# re
+
+This package aims to provide functions similar to the `re` package in Python.
+
+## TODO List
 
 - [x] compile
 - [x] escape
