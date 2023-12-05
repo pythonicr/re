@@ -1,13 +1,17 @@
 Package: re
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Python-ish regular expressions in R
+Version: 0.0.1
 Authors@R: 
-    person("Garrett", "Shipley", , "first.last@example.com", role = c("aut", "cre"),
+    person("Garrett", "Shipley", , "garrett.shipley7@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     stringr
+
+URL: https://pyromatics.github.io/re/, https://github.com/pyRomatics/re/
+BugReports: https://github.com/pyRomatics/re/issues
+Config/Needs/website: pyRomaticstemplate
