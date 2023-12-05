@@ -13,4 +13,4 @@ Imports:
     stringr
 URL: https://pyromatics.github.io/re, https://github.com/pyRomatics/re
 BugReports: https://github.com/pyRomatics/re/issues
-Config/Needs/website: pyRomaticstemplate
+Config/Needs/website: pyRomatics/pyRomaticstemplate
