@@ -2,6 +2,5 @@ url: https://pyromatics.github.io/re/
 template:
   bootstrap: 5
   package: pyRomaticstemplate
-
 development:
   mode: auto
