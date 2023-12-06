@@ -1,6 +1,6 @@
-url: https://pyromatics.github.io/re/
+url: https://pythonicr.github.io/re/
 template:
   bootstrap: 5
-  package: pyRomaticstemplate
+  package: pythonicrtemplate
 development:
   mode: auto
