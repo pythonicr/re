@@ -2,13 +2,28 @@
 % Please edit documentation in R/escape.R
 \name{re_escape}
 \alias{re_escape}
-\title{re_escape}
+\title{Escape special characters}
 \usage{
 re_escape(pattern)
 }
 \arguments{
-\item{pattern}{Pattern to modify behaviour.}
+\item{pattern}{A character vector where each element is a string in which
+special regex characters are to be escaped.}
+}
+\value{
+A character vector of the same length as \code{pattern}, with each element
+having its special regex characters escaped.
 }
 \description{
-Roughly equivalent to re.escape from python
+\code{re_escape} escapes all special characters in a regular expression string.
+This function is useful when you want to treat a string literally in a
+regular expression context, escaping characters that would otherwise be
+interpreted as special regex operators.
+}
+\examples{
+re_escape("a[bc].*d?")
+re_escape(".^$|*+?{}[]()")
+}
+\seealso{
+\href{https://docs.python.org/3/library/re.html#re.escape}{Python re.escape() documentation}
 }

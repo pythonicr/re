@@ -10,7 +10,10 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
-    stringr
+    stringi
 URL: https://pythonicr.github.io/re, https://github.com/pythonicr/re
 BugReports: https://github.com/pythonicr/re/issues
 Config/Needs/website: pythonicr/pythonicrtemplate
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

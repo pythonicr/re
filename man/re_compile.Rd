@@ -2,45 +2,50 @@
 % Please edit documentation in R/compile.R
 \name{re_compile}
 \alias{re_compile}
-\title{re_compile}
+\title{Compile a regular expression with specific flags}
 \usage{
-re_compile(
-  pattern,
-  IGNORECASE,
-  I,
-  MULTILINE,
-  M,
-  DOTALL,
-  S,
-  VERBOSE,
-  X,
-  NOFLAG,
-  ...
-)
+re_compile(pattern, IGNORECASE, I, MULTILINE, M, DOTALL, S, VERBOSE, X, NOFLAG)
 }
 \arguments{
-\item{pattern}{string Regular expression pattern.}
+\item{pattern}{The regular expression pattern to be compiled.}
 
-\item{IGNORECASE}{boolean Whether or not to ignore case during matching.}
+\item{IGNORECASE}{Flag to indicate case-insensitive matching.}
 
-\item{I}{boolean Alternative to IGNORECASE.}
+\item{I}{Abbreviation for IGNORECASE.}
 
-\item{MULTILINE}{boolean whether or not the matches should span over multiple
-lines.}
+\item{MULTILINE}{Flag to indicate multi-line matching, where \code{^} and \code{$}
+match the start and end of each line.}
 
-\item{M}{boolean ALternative for MULTILINE.}
+\item{M}{Abbreviation for MULTILINE.}
 
-\item{DOTALL}{boolean Whether \code{.} should match line breaks.}
+\item{DOTALL}{Flag to indicate that \code{.} (dot) should match any character
+including newline.}
 
-\item{S}{boolean Alternative for DOTALL.}
+\item{S}{Abbreviation for DOTALL}
 
-\item{VERBOSE}{boolean Whether pattern definitions span multiple lines.}
+\item{VERBOSE}{Flag to allow a more verbose regex syntax, which can
+include comments and whitespace for readability.}
 
-\item{X}{boolean Alternative for VERBOSE.}
+\item{X}{Abbreviation for VERBOSE}
 
-\item{NOFLAG}{boolean If this flag is passed, all others are ignored.}
+\item{NOFLAG}{Flag to indicate that no flags should be set.}
+}
+\value{
+An object of class "Pattern" representing the compiled regular
+expression with the specified flags.
 }
 \description{
-Roughly equivalent to python's re.compile. Though, it doesn't
-provide the same performance benefits as python's re.compile.
+\code{re_compile} compiles a regular expression pattern with specified flags. This
+function allows setting various flags akin to regex modifiers in other
+programming languages like Python. The flags control various aspects of
+pattern matching. This function is really just a way to set flag arguments
+with a constant variable.
+}
+\examples{
+pattern <- re_compile("^abc", IGNORECASE)
+pattern <- re_compile("end$", M = TRUE)
+pattern <- re_compile("a.b", DOTALL = TRUE)
+}
+\seealso{
+\href{https://docs.python.org/3/library/re.html#re.compile}{Python re.compile() documentation}
 }

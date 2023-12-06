@@ -2,44 +2,37 @@
 % Please edit documentation in R/fullmatch.R
 \name{re_fullmatch}
 \alias{re_fullmatch}
-\title{re_fullmatch}
+\title{Match a pattern against the entire string}
 \usage{
 re_fullmatch(pattern, string, ...)
 }
 \arguments{
-\item{pattern}{Pattern to look for.
+\item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-The default interpretation is a regular expression, as described in
-\code{vignette("regular-expressions")}. Use \code{\link[stringr:regex]{regex()}} for finer control of the
-matching behaviour.
+\item{string}{A character vector where each element is a string to be matched
+against the pattern.}
 
-Match a fixed string (i.e. by comparing only bytes), using
-\code{\link[stringr:fixed]{fixed()}}. This is fast, but approximate. Generally,
-for matching human text, you'll want \code{\link[stringr:coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[stringr:boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
-
-\item{string}{Input vector. Either a character vector, or something
-coercible to one.}
-
-\item{...}{
-  Arguments passed on to \code{\link[=re_compile]{re_compile}}
-  \describe{
-    \item{\code{IGNORECASE}}{boolean Whether or not to ignore case during matching.}
-    \item{\code{I}}{boolean Alternative to IGNORECASE.}
-    \item{\code{MULTILINE}}{boolean whether or not the matches should span over multiple
-lines.}
-    \item{\code{M}}{boolean ALternative for MULTILINE.}
-    \item{\code{DOTALL}}{boolean Whether \code{.} should match line breaks.}
-    \item{\code{S}}{boolean Alternative for DOTALL.}
-    \item{\code{VERBOSE}}{boolean Whether pattern definitions span multiple lines.}
-    \item{\code{X}}{boolean Alternative for VERBOSE.}
-    \item{\code{NOFLAG}}{boolean If this flag is passed, all others are ignored.}
-  }}
+\item{...}{Additional arguments to be passed to \code{re_compile} if the pattern
+needs to be compiled.}
+}
+\value{
+A list where each element is a character vector containing the full
+match for the corresponding element of \code{string}, or \code{character(0)} if there
+is no match.
+#' @inheritDotParams re_compile
 }
 \description{
-Matches \code{pattern} against the entire  \code{string}.
+\code{re_fullmatch} checks whether each element of a character vector fully
+matches a specified pattern (regular expression). If the provided pattern is
+not already a compiled pattern object, it compiles it using \code{re_compile}. The
+function ensures that the entire string matches the pattern from start to
+end.
+}
+\examples{
+pattern <- re_compile("\\\\d{3}-\\\\d{2}-\\\\d{4}")
+re_fullmatch(pattern, "123-45-6789") # Full match
+re_fullmatch("123-45-6789", "123-45-6789 and more") # No full match
+}
+\seealso{
+\href{https://docs.python.org/3/library/re.html#re.fullmatch}{Python re.fullmatch() documentation}
 }

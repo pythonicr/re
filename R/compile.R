@@ -1,37 +1,50 @@
-#' @title re_compile
+#' Compile a regular expression with specific flags
 #'
-#' @description Roughly equivalent to python's re.compile. Though, it doesn't
-#' provide the same performance benefits as python's re.compile.
+#' `re_compile` compiles a regular expression pattern with specified flags. This
+#' function allows setting various flags akin to regex modifiers in other
+#' programming languages like Python. The flags control various aspects of
+#' pattern matching. This function is really just a way to set flag arguments
+#' with a constant variable.
 #'
-#' @param pattern string Regular expression pattern.
-#' @param IGNORECASE boolean Whether or not to ignore case during matching.
-#' @param I boolean Alternative to IGNORECASE.
-#' @param MULTILINE boolean whether or not the matches should span over multiple
-#' lines.
-#' @param M boolean ALternative for MULTILINE.
-#' @param DOTALL boolean Whether ``.`` should match line breaks.
-#' @param S boolean Alternative for DOTALL.
-#' @param VERBOSE boolean Whether pattern definitions span multiple lines.
-#' @param X boolean Alternative for VERBOSE.
-#' @param NOFLAG boolean If this flag is passed, all others are ignored.
+#' @param pattern The regular expression pattern to be compiled.
+#' @param IGNORECASE Flag to indicate case-insensitive matching.
+#' @param I Abbreviation for IGNORECASE.
+#' @param MULTILINE Flag to indicate multi-line matching, where `^` and `$`
+#' match the start and end of each line.
+#' @param M Abbreviation for MULTILINE.
+#' @param DOTALL Flag to indicate that `.` (dot) should match any character
+#' including newline.
+#' @param S Abbreviation for DOTALL
+#' @param VERBOSE Flag to allow a more verbose regex syntax, which can
+#' include comments and whitespace for readability.
+#' @param X Abbreviation for VERBOSE
+#' @param NOFLAG Flag to indicate that no flags should be set.
+#' @return An object of class "Pattern" representing the compiled regular
+#' expression with the specified flags.
+#' @examples
+#' pattern <- re_compile("^abc", IGNORECASE)
+#' pattern <- re_compile("end$", M = TRUE)
+#' pattern <- re_compile("a.b", DOTALL = TRUE)
+#' @seealso [Python re.compile() documentation](https://docs.python.org/3/library/re.html#re.compile)
 #' @export
 re_compile <- function(pattern,
                        IGNORECASE, I,
                        MULTILINE, M,
                        DOTALL, S,
                        VERBOSE, X,
-                       NOFLAG,
-                       ...) {
-  if (!missing(NOFLAG)) {
-    stringr::regex(pattern)
+                       NOFLAG) {
+  opts <- if (!missing(NOFLAG)) {
+    NULL
   } else {
-    stringr::regex(
-      pattern,
-      ignore_case = !missing(IGNORECASE) | !missing(I),
-      multiline = !missing(MULTILINE) | !missing(M),
-      dotall = !missing(DOTALL) | !missing(S),
+    stringi::stri_opts_regex(
+      case_insensitive = !missing(IGNORECASE) | !missing(I),
       comments = !missing(VERBOSE) | !missing(X),
-      ...
+      dotall = !missing(DOTALL) | !missing(S),
+      multiline = !missing(MULTILINE) | !missing(M)
     )
   }
+  structure(pattern,
+    class = c("Pattern", class(pattern)),
+    opts = opts
+  )
 }

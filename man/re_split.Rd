@@ -2,52 +2,50 @@
 % Please edit documentation in R/split.R
 \name{re_split}
 \alias{re_split}
-\title{re_split}
+\title{Split a string by a regular expression pattern}
 \usage{
-re_split(pattern, string, ..., n = Inf)
+re_split(pattern, string, ..., maxsplit = -1L)
 }
 \arguments{
-\item{pattern}{Pattern to look for.
+\item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-The default interpretation is a regular expression, as described in
-\code{vignette("regular-expressions")}. Use \code{\link[stringr:regex]{regex()}} for finer control of the
-matching behaviour.
-
-Match a fixed string (i.e. by comparing only bytes), using
-\code{\link[stringr:fixed]{fixed()}}. This is fast, but approximate. Generally,
-for matching human text, you'll want \code{\link[stringr:coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[stringr:boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
-
-\item{string}{Input vector. Either a character vector, or something
-coercible to one.}
+\item{string}{A character vector where each element is a string to be split.}
 
 \item{...}{
   Arguments passed on to \code{\link[=re_compile]{re_compile}}
   \describe{
-    \item{\code{IGNORECASE}}{boolean Whether or not to ignore case during matching.}
-    \item{\code{I}}{boolean Alternative to IGNORECASE.}
-    \item{\code{MULTILINE}}{boolean whether or not the matches should span over multiple
-lines.}
-    \item{\code{M}}{boolean ALternative for MULTILINE.}
-    \item{\code{DOTALL}}{boolean Whether \code{.} should match line breaks.}
-    \item{\code{S}}{boolean Alternative for DOTALL.}
-    \item{\code{VERBOSE}}{boolean Whether pattern definitions span multiple lines.}
-    \item{\code{X}}{boolean Alternative for VERBOSE.}
-    \item{\code{NOFLAG}}{boolean If this flag is passed, all others are ignored.}
+    \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
+    \item{\code{I}}{Abbreviation for IGNORECASE.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$}
+match the start and end of each line.}
+    \item{\code{M}}{Abbreviation for MULTILINE.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character
+including newline.}
+    \item{\code{S}}{Abbreviation for DOTALL}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can
+include comments and whitespace for readability.}
+    \item{\code{X}}{Abbreviation for VERBOSE}
+    \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
   }}
 
-\item{n}{Maximum number of pieces to return. Default (Inf) uses all
-possible split positions.
-
-For \code{str_split()}, this determines the maximum length of each element
-of the output. For \code{str_split_fixed()}, this determines the number of
-columns in the output; if an input is too short, the result will be padded
-with \code{""}.}
+\item{maxsplit}{The maximum number of splits to perform on each string.
+If -1L (default), all possible splits are performed.}
+}
+\value{
+A list of character vectors, where each vector contains the
+substrings resulting from splitting the corresponding element of \code{string}.
 }
 \description{
-Split \code{string} on \code{pattern}. Split will occur \code{n} times.
+\code{re_split} splits each element of a character vector into substrings based on
+a specified pattern (regular expression). If the provided pattern is not
+already a compiled pattern object, it compiles it using \code{re_compile}. The
+function allows for controlling the maximum number of splits performed.
+}
+\examples{
+pattern <- re_compile("\\\\s+")
+re_split(pattern, "Split this string") # Splits on whitespace
+re_split("\\\\W+", "Split,with!punctuation.morestuff", maxsplit = 2)
+}
+\seealso{
+\href{https://docs.python.org/3/library/re.html#re.split}{Python re.split() documentation}
 }

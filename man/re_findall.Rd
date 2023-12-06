@@ -2,44 +2,47 @@
 % Please edit documentation in R/findall.R
 \name{re_findall}
 \alias{re_findall}
-\title{re_findall}
+\title{Extract all occurrences of a pattern in a string}
 \usage{
 re_findall(pattern, string, ...)
 }
 \arguments{
-\item{pattern}{Pattern to look for.
+\item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-The default interpretation is a regular expression, as described in
-\code{vignette("regular-expressions")}. Use \code{\link[stringr:regex]{regex()}} for finer control of the
-matching behaviour.
-
-Match a fixed string (i.e. by comparing only bytes), using
-\code{\link[stringr:fixed]{fixed()}}. This is fast, but approximate. Generally,
-for matching human text, you'll want \code{\link[stringr:coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[stringr:boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
-
-\item{string}{Input vector. Either a character vector, or something
-coercible to one.}
+\item{string}{A character vector where each element is a string from which to
+extract matches of the pattern.}
 
 \item{...}{
   Arguments passed on to \code{\link[=re_compile]{re_compile}}
   \describe{
-    \item{\code{IGNORECASE}}{boolean Whether or not to ignore case during matching.}
-    \item{\code{I}}{boolean Alternative to IGNORECASE.}
-    \item{\code{MULTILINE}}{boolean whether or not the matches should span over multiple
-lines.}
-    \item{\code{M}}{boolean ALternative for MULTILINE.}
-    \item{\code{DOTALL}}{boolean Whether \code{.} should match line breaks.}
-    \item{\code{S}}{boolean Alternative for DOTALL.}
-    \item{\code{VERBOSE}}{boolean Whether pattern definitions span multiple lines.}
-    \item{\code{X}}{boolean Alternative for VERBOSE.}
-    \item{\code{NOFLAG}}{boolean If this flag is passed, all others are ignored.}
+    \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
+    \item{\code{I}}{Abbreviation for IGNORECASE.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$}
+match the start and end of each line.}
+    \item{\code{M}}{Abbreviation for MULTILINE.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character
+including newline.}
+    \item{\code{S}}{Abbreviation for DOTALL}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can
+include comments and whitespace for readability.}
+    \item{\code{X}}{Abbreviation for VERBOSE}
+    \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
   }}
 }
+\value{
+A list of character vectors, where each vector contains all the
+matches found in the corresponding element of \code{string}.
+}
 \description{
-Matches all occurrences of \code{pattern} in \code{string}.
+\code{re_findall} extracts all occurrences of a specified pattern (regular
+expression) from each element of a character vector. If the provided pattern
+is not already a compiled pattern object, it compiles it using \code{re_compile}.
+}
+\examples{
+pattern <- re_compile("\\\\b\\\\w+\\\\b")
+re_findall(pattern, "This is a test.") # Extracts all words
+re_findall("\\\\d+", "123 abc 456")
+}
+\seealso{
+\href{https://docs.python.org/3/library/re.html#re.findall}{Python re.findall() documentation}
 }
