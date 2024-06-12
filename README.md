@@ -4,7 +4,7 @@ This package aims to provide functions similar to the `re` package in Python.
 
 ## Install
 
-The package currently isn't on CRAN, so you'll have to install it using
+The package isn't on CRAN, but you can install it using
 [remotes](https://cran.r-project.org/package=remotes).
 
 `remotes::install_github("pythonicr/re")`
