@@ -89,18 +89,155 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="re">re<a class="anchor" aria-label="anchor" href="#re"></a>
+<div class="page-header"><h1 id="re-regular-expressions-made-easy-in-r">re: Regular Expressions Made Easy in R<a class="anchor" aria-label="anchor" href="#re-regular-expressions-made-easy-in-r"></a>
 </h1></div>
-<p>This package aims to provide functions similar to the <code>re</code> package in Python.</p>
 <div class="section level2">
-<h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The package isn’t on CRAN, but you can install it using <a href="https://cran.r-project.org/package=remotes" class="external-link">remotes</a>.</p>
-<p><code>remotes::install_github("pythonicr/re")</code></p>
+<p><strong>re</strong> is an R package designed to simplify working with regular expressions by providing a set of functions similar to Python’s <code>re</code> module. The package includes utilities for compiling regular expressions with specific flags, checking for matches, escaping special characters, and more. By emulating the functionality and naming conventions of Python’s <code>re</code> module, <strong>re</strong> aims to make regex operations in R more intuitive and accessible, especially for those familiar with Python.</p>
 </div>
 <div class="section level2">
-<h2 id="todo">Todo<a class="anchor" aria-label="anchor" href="#todo"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>You can install the <code>re</code> package directly from GitHub.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Install devtools if you haven't already</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install re package from GitHub</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"pythonicr/re"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
+<div class="section level3">
+<h3 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+</h3>
+<p>Here are some examples demonstrating how to use the functions provided by the <strong>re</strong> package.</p>
+<div class="section level4">
+<h4 id="compile-a-regular-expression-with-specific-flags">Compile a Regular Expression with Specific Flags<a class="anchor" aria-label="anchor" href="#compile-a-regular-expression-with-specific-flags"></a>
+</h4>
+<p>The <code>re_compile</code> function compiles a regular expression pattern with specified flags. This step is optional as flags and patterns can be provided for any of the functions.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pythonicr.github.io/re">re</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Compile a pattern with case-insensitive matching</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"^abc"</span>, IGNORECASE <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Compile a pattern with multi-line matching (abbreviations are based on Python's re package)</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"end$"</span>, M <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"end$"</span>, MULTILINE <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Compile a pattern with DOTALL flag</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"a.b"</span>, DOTALL <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="check-if-a-string-contains-a-regular-expression">Check if a String Contains a Regular Expression<a class="anchor" aria-label="anchor" href="#check-if-a-string-contains-a-regular-expression"></a>
+</h4>
+<p>The <code>re_contains</code> function checks whether a specified pattern is found within each element of a character vector.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check if strings contain a pattern</span></span>
+<span><span class="fu"><a href="reference/re_contains.html">re_contains</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"Abcdef"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="reference/re_contains.html">re_contains</a></span><span class="op">(</span><span class="st">"xyz$"</span>, <span class="st">"hello world xyz"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="escape-special-characters">Escape Special Characters<a class="anchor" aria-label="anchor" href="#escape-special-characters"></a>
+</h4>
+<p>The <code>re_escape</code> function escapes all special characters in a regular expression string.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Escape special characters in a string</span></span>
+<span><span class="va">escaped_pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_escape.html">re_escape</a></span><span class="op">(</span><span class="st">"a[bc].*d?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">escaped_pattern</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "a\\[bc\\]\\.\\*d\\?"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="extract-all-occurrences-of-a-pattern-in-a-string">Extract All Occurrences of a Pattern in a String<a class="anchor" aria-label="anchor" href="#extract-all-occurrences-of-a-pattern-in-a-string"></a>
+</h4>
+<p>The <code>re_findall</code> function extracts all occurrences of a specified pattern from each element of a character vector.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Extract all words from a string</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\b\\w+\\b"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_findall.html">re_findall</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"This is a test."</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "This" "is"   "a"    "test"</span></span>
+<span><span class="fu"><a href="reference/re_findall.html">re_findall</a></span><span class="op">(</span><span class="st">"\\d+"</span>, <span class="st">"123 abc 456"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "123" "456"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="match-a-pattern-against-the-entire-string">Match a Pattern Against the Entire String<a class="anchor" aria-label="anchor" href="#match-a-pattern-against-the-entire-string"></a>
+</h4>
+<p>The <code>re_fullmatch</code> function checks whether each element of a character vector fully matches a specified pattern.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check for full matches in a string</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\d{3}-\\d{2}-\\d{4}"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_fullmatch.html">re_fullmatch</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"123-45-6789"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "123-45-6789"</span></span>
+<span><span class="fu"><a href="reference/re_fullmatch.html">re_fullmatch</a></span><span class="op">(</span><span class="st">"123-45-6789"</span>, <span class="st">"123-45-6789 and more"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] NA</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="match-a-pattern-at-the-start-of-a-string">Match a Pattern at the Start of a String<a class="anchor" aria-label="anchor" href="#match-a-pattern-at-the-start-of-a-string"></a>
+</h4>
+<p>The <code>re_match</code> function checks whether each element of a character vector matches a specified pattern at the start.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check for matches at the start of a string</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\d{3}"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_match.html">re_match</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"123abc"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "123"</span></span>
+<span><span class="fu"><a href="reference/re_match.html">re_match</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"xyzabc"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] NA</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="search-for-a-pattern-in-a-string">Search for a Pattern in a String<a class="anchor" aria-label="anchor" href="#search-for-a-pattern-in-a-string"></a>
+</h4>
+<p>The <code>re_search</code> function searches for occurrences of a specified pattern within each element of a character vector.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Search for a pattern in a string</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\d+"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_search.html">re_search</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"abc 123 xyz"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "123"</span></span>
+<span><span class="fu"><a href="reference/re_search.html">re_search</a></span><span class="op">(</span><span class="st">"\\bword\\b"</span>, <span class="st">"A sentence with the word."</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "word"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="split-a-string-by-a-regular-expression-pattern">Split a String by a Regular Expression Pattern<a class="anchor" aria-label="anchor" href="#split-a-string-by-a-regular-expression-pattern"></a>
+</h4>
+<p>The <code>re_split</code> function splits each element of a character vector into substrings based on a specified pattern.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Split strings based on a pattern</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\s+"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_split.html">re_split</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"Split this string"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "Split"  "this"   "string"</span></span>
+<span><span class="fu"><a href="reference/re_split.html">re_split</a></span><span class="op">(</span><span class="st">"\\W+"</span>, <span class="st">"Split,with!punctuation.morestuff"</span>, maxsplit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "Split"                 "with"                  "punctuation.morestuff"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="substitute-occurrences-of-a-pattern-in-a-string">Substitute Occurrences of a Pattern in a String<a class="anchor" aria-label="anchor" href="#substitute-occurrences-of-a-pattern-in-a-string"></a>
+</h4>
+<p>The <code>re_sub</code> function replaces all occurrences of a specified pattern in each element of a character vector with a replacement string.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Substitute patterns in a string</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/re_compile.html">re_compile</a></span><span class="op">(</span><span class="st">"\\d+"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/re_sub.html">re_sub</a></span><span class="op">(</span><span class="va">pattern</span>, <span class="st">"number"</span>, <span class="st">"Replace 123 with text."</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Replace number with text."</span></span>
+<span><span class="fu"><a href="reference/re_sub.html">re_sub</a></span><span class="op">(</span><span class="st">"\\s+"</span>, <span class="st">"-"</span>, <span class="st">"Split and join"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Split-and-join"</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>We welcome contributions to the <strong>re</strong> package. If you have suggestions, bug reports, or want to contribute code, please open an issue or submit a pull request on our GitHub repository.</p>
 <ul class="task-list">
 <li><label><input type="checkbox" checked>compile</label></li>
 <li><label><input type="checkbox" checked>escape</label></li>
@@ -114,6 +251,11 @@
 <li><label><input type="checkbox" checked>sub</label></li>
 <li><label><input type="checkbox">subn</label></li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p><strong>re</strong> is released under the MIT License. See the LICENSE file in the package’s repository for more details.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
