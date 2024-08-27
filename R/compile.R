@@ -1,26 +1,20 @@
-#' Compile a regular expression with specific flags
+#' @title Create a Regular Expression Object with Specific Flags
 #'
-#' `re_compile` compiles a regular expression pattern with specified flags. This
-#' function allows setting various flags akin to regex modifiers in other
-#' programming languages like Python. The flags control various aspects of
-#' pattern matching. This function is really just a way to set flag arguments
-#' with a constant variable.
+#' @description `re_compile` compiles a regular expression pattern with specified flags. This function allows setting
+#' various flags akin to regex modifiers in other programming languages like Python. The flags control various aspects
+#' of pattern matching. This function is really just a way to set flag arguments with a constant variable.
 #'
 #' @param pattern The regular expression pattern to be compiled.
 #' @param IGNORECASE Flag to indicate case-insensitive matching.
 #' @param I Abbreviation for IGNORECASE.
-#' @param MULTILINE Flag to indicate multi-line matching, where `^` and `$`
-#' match the start and end of each line.
+#' @param MULTILINE Flag to indicate multi-line matching, where `^` and `$` match the start and end of each line.
 #' @param M Abbreviation for MULTILINE.
-#' @param DOTALL Flag to indicate that `.` (dot) should match any character
-#' including newline.
+#' @param DOTALL Flag to indicate that `.` (dot) should match any character including newline.
 #' @param S Abbreviation for DOTALL
-#' @param VERBOSE Flag to allow a more verbose regex syntax, which can
-#' include comments and whitespace for readability.
+#' @param VERBOSE Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.
 #' @param X Abbreviation for VERBOSE
 #' @param NOFLAG Flag to indicate that no flags should be set.
-#' @return An object of class "Pattern" representing the compiled regular
-#' expression with the specified flags.
+#' @return An object of class "Pattern" representing the compiled regular expression with the specified flags.
 #' @examples
 #' pattern <- re_compile("^abc", IGNORECASE)
 #' pattern <- re_compile("end$", M = TRUE)
