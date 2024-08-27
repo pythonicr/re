@@ -1,4 +1,4 @@
-#' Check if string contains a regular expression
+#' @title Check if string contains a regular expression
 #'
 #' @description `re_contains` checks whether a specified pattern (regular expression) is found within each element of a
 #' character vector. If the provided pattern is not already a compiled pattern object, it compiles it using
