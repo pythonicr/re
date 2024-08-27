@@ -1,4 +1,4 @@
-#' @title Create a Regular Expression Object with Specific Flags
+#' @title Create a regular expression object with specific flags
 #'
 #' @description `re_compile` compiles a regular expression pattern with specified flags. This function allows setting
 #' various flags akin to regex modifiers in other programming languages like Python. The flags control various aspects
