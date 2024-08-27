@@ -9,24 +9,30 @@ re_fullmatch(pattern, string, ...)
 \arguments{
 \item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-\item{string}{A character vector where each element is a string to be matched
-against the pattern.}
+\item{string}{A character vector where each element is a string to be matched against the pattern.}
 
-\item{...}{Additional arguments to be passed to \code{re_compile} if the pattern
-needs to be compiled.}
+\item{...}{
+  Arguments passed on to \code{\link[=re_compile]{re_compile}}
+  \describe{
+    \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
+    \item{\code{I}}{Abbreviation for IGNORECASE.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$} match the start and end of each line.}
+    \item{\code{M}}{Abbreviation for MULTILINE.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character including newline.}
+    \item{\code{S}}{Abbreviation for DOTALL}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.}
+    \item{\code{X}}{Abbreviation for VERBOSE}
+    \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
+  }}
 }
 \value{
-A list where each element is a character vector containing the full
-match for the corresponding element of \code{string}, or \code{character(0)} if there
-is no match.
-#' @inheritDotParams re_compile
+A list where each element is a character vector containing the full match for the corresponding element of
+\code{string}, or \code{character(0)} if there is no match.
 }
 \description{
-\code{re_fullmatch} checks whether each element of a character vector fully
-matches a specified pattern (regular expression). If the provided pattern is
-not already a compiled pattern object, it compiles it using \code{re_compile}. The
-function ensures that the entire string matches the pattern from start to
-end.
+\code{re_fullmatch} checks whether each element of a character vector fully matches a specified pattern
+(regular expression). If the provided pattern is not already a compiled pattern object, it compiles it using
+\code{re_compile}. The function ensures that the entire string matches the pattern from start to end.
 }
 \examples{
 pattern <- re_compile("\\\\d{3}-\\\\d{2}-\\\\d{4}")

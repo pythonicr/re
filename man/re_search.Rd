@@ -9,35 +9,29 @@ re_search(pattern, string, ...)
 \arguments{
 \item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-\item{string}{A character vector where each element is a string in which to
-search for the pattern.}
+\item{string}{A character vector where each element is a string in which to search for the pattern.}
 
 \item{...}{
   Arguments passed on to \code{\link[=re_compile]{re_compile}}
   \describe{
     \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
     \item{\code{I}}{Abbreviation for IGNORECASE.}
-    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$}
-match the start and end of each line.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$} match the start and end of each line.}
     \item{\code{M}}{Abbreviation for MULTILINE.}
-    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character
-including newline.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character including newline.}
     \item{\code{S}}{Abbreviation for DOTALL}
-    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can
-include comments and whitespace for readability.}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.}
     \item{\code{X}}{Abbreviation for VERBOSE}
     \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
   }}
 }
 \value{
-A list where each element is a character vector containing all
-matches found in the corresponding element of \code{string}. If no matches are
-found, the element will be \code{character(0)}.
+A list where each element is a character vector containing all matches found in the corresponding element of
+\code{string}. If no matches are found, the element will be \code{character(0)}.
 }
 \description{
-\code{re_search} searches for occurrences of a specified pattern (regular
-expression) within each element of a character vector. If the provided
-pattern is not already a compiled pattern object, it compiles it using
+\code{re_search} searches for occurrences of a specified pattern (regular expression) within each element of
+a character vector. If the provided pattern is not already a compiled pattern object, it compiles it using
 \code{re_compile}.
 }
 \examples{

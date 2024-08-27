@@ -9,36 +9,30 @@ re_match(pattern, string, ...)
 \arguments{
 \item{pattern}{A regular expression pattern or a compiled pattern object.}
 
-\item{string}{A character vector where each element is a string to be matched
-against the pattern at the beginning.}
+\item{string}{A character vector where each element is a string to be matched against the pattern at the beginning.}
 
 \item{...}{
   Arguments passed on to \code{\link[=re_compile]{re_compile}}
   \describe{
     \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
     \item{\code{I}}{Abbreviation for IGNORECASE.}
-    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$}
-match the start and end of each line.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$} match the start and end of each line.}
     \item{\code{M}}{Abbreviation for MULTILINE.}
-    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character
-including newline.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character including newline.}
     \item{\code{S}}{Abbreviation for DOTALL}
-    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can
-include comments and whitespace for readability.}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.}
     \item{\code{X}}{Abbreviation for VERBOSE}
     \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
   }}
 }
 \value{
-A list where each element is a character vector containing the match
-found at the start of the corresponding element of \code{string}, or
-\code{character(0)} if there is no match at the start.
+A list where each element is a character vector containing the match found at the start of the corresponding
+element of \code{string}, or \code{character(0)} if there is no match at the start.
 }
 \description{
-\code{re_match} checks whether each element of a character vector matches a
-specified pattern (regular expression) at the start. If the provided pattern
-is not already a compiled pattern object, it compiles it using \code{re_compile}.
-The function ensures that the matching occurs at the beginning of the string.
+\code{re_match} checks whether each element of a character vector matches a specified pattern (regular
+expression) at the start. If the provided pattern is not already a compiled pattern object, it compiles it using
+\code{re_compile}. The function ensures that the matching occurs at the beginning of the string.
 }
 \examples{
 pattern <- re_compile("\\\\d{3}")

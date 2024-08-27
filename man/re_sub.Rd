@@ -11,35 +11,30 @@ re_sub(pattern, replacement, string, ...)
 
 \item{replacement}{The replacement string.}
 
-\item{string}{A character vector where each element is a string in which the
-pattern will be replaced.}
+\item{string}{A character vector where each element is a string in which the pattern will be replaced.}
 
 \item{...}{
   Arguments passed on to \code{\link[=re_compile]{re_compile}}
   \describe{
     \item{\code{IGNORECASE}}{Flag to indicate case-insensitive matching.}
     \item{\code{I}}{Abbreviation for IGNORECASE.}
-    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$}
-match the start and end of each line.}
+    \item{\code{MULTILINE}}{Flag to indicate multi-line matching, where \code{^} and \code{$} match the start and end of each line.}
     \item{\code{M}}{Abbreviation for MULTILINE.}
-    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character
-including newline.}
+    \item{\code{DOTALL}}{Flag to indicate that \code{.} (dot) should match any character including newline.}
     \item{\code{S}}{Abbreviation for DOTALL}
-    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can
-include comments and whitespace for readability.}
+    \item{\code{VERBOSE}}{Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.}
     \item{\code{X}}{Abbreviation for VERBOSE}
     \item{\code{NOFLAG}}{Flag to indicate that no flags should be set.}
   }}
 }
 \value{
-A character vector of the same length as \code{string}, with all
-occurrences of the pattern replaced by \code{replacement} in each element.
+A character vector of the same length as \code{string}, with all occurrences of the pattern replaced by
+\code{replacement} in each element.
 }
 \description{
-\code{re_sub} replaces all occurrences of a specified pattern (regular expression)
-in each element of a character vector with a replacement string. If the
-provided pattern is not already a compiled pattern object, it compiles it
-using \code{re_compile}.
+\code{re_sub} replaces all occurrences of a specified pattern (regular expression) in each element of a
+character vector with a replacement string. If the provided pattern is not already a compiled pattern object, it
+compiles it using \code{re_compile}.
 }
 \examples{
 pattern <- re_compile("\\\\d+")

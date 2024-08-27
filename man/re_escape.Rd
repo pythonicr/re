@@ -7,18 +7,15 @@
 re_escape(pattern)
 }
 \arguments{
-\item{pattern}{A character vector where each element is a string in which
-special regex characters are to be escaped.}
+\item{pattern}{A character vector where each element is a string in which special regex characters are to be escaped.}
 }
 \value{
-A character vector of the same length as \code{pattern}, with each element
-having its special regex characters escaped.
+A character vector of the same length as \code{pattern}.
 }
 \description{
-\code{re_escape} escapes all special characters in a regular expression string.
-This function is useful when you want to treat a string literally in a
-regular expression context, escaping characters that would otherwise be
-interpreted as special regex operators.
+\code{re_escape} escapes all special characters in a string. This function is useful when you want to treat a
+string literally in a regular expression context, escaping characters that would otherwise be interpreted as special
+regex operators.
 }
 \examples{
 re_escape("a[bc].*d?")

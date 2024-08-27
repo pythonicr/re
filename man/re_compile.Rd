@@ -2,7 +2,7 @@
 % Please edit documentation in R/compile.R
 \name{re_compile}
 \alias{re_compile}
-\title{Compile a regular expression with specific flags}
+\title{Create a regular expression object with specific flags}
 \usage{
 re_compile(pattern, IGNORECASE, I, MULTILINE, M, DOTALL, S, VERBOSE, X, NOFLAG)
 }
@@ -13,33 +13,27 @@ re_compile(pattern, IGNORECASE, I, MULTILINE, M, DOTALL, S, VERBOSE, X, NOFLAG)
 
 \item{I}{Abbreviation for IGNORECASE.}
 
-\item{MULTILINE}{Flag to indicate multi-line matching, where \code{^} and \code{$}
-match the start and end of each line.}
+\item{MULTILINE}{Flag to indicate multi-line matching, where \code{^} and \code{$} match the start and end of each line.}
 
 \item{M}{Abbreviation for MULTILINE.}
 
-\item{DOTALL}{Flag to indicate that \code{.} (dot) should match any character
-including newline.}
+\item{DOTALL}{Flag to indicate that \code{.} (dot) should match any character including newline.}
 
 \item{S}{Abbreviation for DOTALL}
 
-\item{VERBOSE}{Flag to allow a more verbose regex syntax, which can
-include comments and whitespace for readability.}
+\item{VERBOSE}{Flag to allow a more verbose regex syntax, which can include comments and whitespace for readability.}
 
 \item{X}{Abbreviation for VERBOSE}
 
 \item{NOFLAG}{Flag to indicate that no flags should be set.}
 }
 \value{
-An object of class "Pattern" representing the compiled regular
-expression with the specified flags.
+An object of class "Pattern" representing the compiled regular expression with the specified flags.
 }
 \description{
-\code{re_compile} compiles a regular expression pattern with specified flags. This
-function allows setting various flags akin to regex modifiers in other
-programming languages like Python. The flags control various aspects of
-pattern matching. This function is really just a way to set flag arguments
-with a constant variable.
+\code{re_compile} compiles a regular expression pattern with specified flags. This function allows setting
+various flags akin to regex modifiers in other programming languages like Python. The flags control various aspects
+of pattern matching. This function is really just a way to set flag arguments with a constant variable.
 }
 \examples{
 pattern <- re_compile("^abc", IGNORECASE)
