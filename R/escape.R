@@ -1,14 +1,11 @@
-#' Escape special characters
+#' @title Escape special characters
 #'
-#' `re_escape` escapes all special characters in a regular expression string.
-#' This function is useful when you want to treat a string literally in a
-#' regular expression context, escaping characters that would otherwise be
-#' interpreted as special regex operators.
+#' @description `re_escape` escapes all special characters in a string. This function is useful when you want to treat a
+#' string literally in a regular expression context, escaping characters that would otherwise be interpreted as special
+#' regex operators.
 #'
-#' @param pattern A character vector where each element is a string in which
-#' special regex characters are to be escaped.
-#' @return A character vector of the same length as `pattern`, with each element
-#' having its special regex characters escaped.
+#' @param pattern A character vector where each element is a string in which special regex characters are to be escaped.
+#' @return A character vector of the same length as `pattern`.
 #' @examples
 #' re_escape("a[bc].*d?")
 #' re_escape(".^$|*+?{}[]()")
