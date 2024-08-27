@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://pythonicr.github.io/re/404.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_compile.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_contains.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_escape.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_findall.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_fullmatch.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_match.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_search.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_split.html</loc>
-  </url>
-  <url>
-    <loc>https://pythonicr.github.io/re/reference/re_sub.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://pythonicr.github.io/re/404.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/LICENSE-text.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/LICENSE.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/authors.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/index.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/index.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_compile.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_contains.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_escape.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_findall.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_fullmatch.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_match.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_search.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_split.html</loc></url>
+<url><loc>https://pythonicr.github.io/re/reference/re_sub.html</loc></url>
 </urlset>
+
