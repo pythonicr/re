@@ -1,18 +1,15 @@
-#' Substitute occurrences of a pattern in a string
+#' @title Substitute occurrences of a pattern in a string
 #'
-#' `re_sub` replaces all occurrences of a specified pattern (regular expression)
-#' in each element of a character vector with a replacement string. If the
-#' provided pattern is not already a compiled pattern object, it compiles it
-#' using `re_compile`.
+#' @description `re_sub` replaces all occurrences of a specified pattern (regular expression) in each element of a
+#' character vector with a replacement string. If the provided pattern is not already a compiled pattern object, it
+#' compiles it using `re_compile`.
 #'
 #' @param pattern A regular expression pattern or a compiled pattern object.
 #' @param replacement The replacement string.
-#' @param string A character vector where each element is a string in which the
-#' pattern will be replaced.
-#' @param ... Additional arguments to be passed to `re_compile` if the pattern
-#' needs to be compiled.
-#' @return A character vector of the same length as `string`, with all
-#' occurrences of the pattern replaced by `replacement` in each element.
+#' @param string A character vector where each element is a string in which the pattern will be replaced.
+#' @param ... Additional arguments to be passed to `re_compile` if the pattern needs to be compiled.
+#' @return A character vector of the same length as `string`, with all occurrences of the pattern replaced by
+#' `replacement` in each element.
 #' @inheritDotParams re_compile
 #' @examples
 #' pattern <- re_compile("\\d+")
