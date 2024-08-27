@@ -1,18 +1,16 @@
-#' Split a string by a regular expression pattern
+#' @title Split a string by a regular expression pattern
 #'
-#' `re_split` splits each element of a character vector into substrings based on
-#' a specified pattern (regular expression). If the provided pattern is not
-#' already a compiled pattern object, it compiles it using `re_compile`. The
-#' function allows for controlling the maximum number of splits performed.
+#' @description `re_split` splits each element of a character vector into substrings based on a specified pattern
+#' (regular expression). If the provided pattern is not already a compiled pattern object, it compiles it using
+#' `re_compile`. The function allows for controlling the maximum number of splits performed.
 #'
 #' @param pattern A regular expression pattern or a compiled pattern object.
 #' @param string A character vector where each element is a string to be split.
-#' @param maxsplit The maximum number of splits to perform on each string.
-#' If -1L (default), all possible splits are performed.
-#' @param ... Additional arguments to be passed to `re_compile` if the pattern
-#' needs to be compiled.
-#' @return A list of character vectors, where each vector contains the
-#' substrings resulting from splitting the corresponding element of `string`.
+#' @param maxsplit The maximum number of splits to perform on each string. If -1L (default), all possible splits are
+#' performed.
+#' @param ... Additional arguments to be passed to `re_compile` if the pattern needs to be compiled.
+#' @return A list of character vectors, where each vector contains the substrings resulting from splitting the
+#' corresponding element of `string`.
 #' @inheritDotParams re_compile
 #' @examples
 #' pattern <- re_compile("\\s+")
